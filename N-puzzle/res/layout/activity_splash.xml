@@ -11,6 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/logo"
-        android:background="@drawable/mindsnacks" android:contentDescription="Splash image"/>
+        android:background="@drawable/npuzzle" android:contentDescription="Splash image"/>
     
 </LinearLayout>
