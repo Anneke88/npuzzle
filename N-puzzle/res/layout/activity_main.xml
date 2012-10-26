@@ -12,6 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/button_main_settings"
         android:layout_marginTop="200dp"
+        android:onClick="startGame"
         android:text="@string/btn_play" />
 
     <Button
@@ -20,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_main_play"
         android:layout_centerHorizontal="true"
+        android:onClick="changeSettings"
         android:text="@string/btn_settings" />
 
     <Button
@@ -29,6 +31,7 @@
         android:layout_alignLeft="@+id/button_main_settings"
         android:layout_alignRight="@+id/button_main_settings"
         android:layout_below="@+id/button_main_settings"
+        android:onClick="explainControls"
         android:text="@string/btn_help" />
 
     <Button
@@ -38,6 +41,7 @@
         android:layout_alignLeft="@+id/button_main_help"
         android:layout_alignRight="@+id/button_main_help"
         android:layout_below="@+id/button_main_help"
+        android:onClick="explainGame"
         android:text="@string/btn_about" />
 
     <ImageView

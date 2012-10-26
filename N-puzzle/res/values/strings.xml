@@ -1,11 +1,10 @@
 <resources>
 
-    <string name="app_name">N-puzzle</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Chop that Word</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_splash">N-puzzle</string>
+    <string name="title_activity_splash">Chop that Word</string>
     <string name="image_splashMindsnacks">Splash image</string>
-    <string name="title_activity_main">Main</string>
+    <string name="title_activity_main">Main Menu</string>
     <string name="btn_play">Play!</string>
     <string name="btn_settings">Settings</string>
     <string name="btn_about">About</string>
