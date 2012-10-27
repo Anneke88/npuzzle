@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.support.v4.app.NavUtils;
-import android.text.Editable;
 
 public class MainActivity extends Activity {
 
