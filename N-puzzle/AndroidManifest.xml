@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.challenges.mindsnacks.npuzzle.SplashActivity"
+            android:name="com.challenges.npuzzle.SplashActivity"
             android:label="@string/title_activity_splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,11 +23,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.challenges.mindsnacks.npuzzle.MainActivity"
+            android:name="com.challenges.npuzzle.MainActivity"
             android:label="@string/title_activity_main" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.challenges.mindsnacks.npuzzle.SplashActivity" />
+                android:value="com.challenges.npuzzle.SplashActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.challenges.npuzzle.MainActivity" />
+        </activity>
+        <activity
+            android:name=".GameScreenActivity"
+            android:label="@string/title_activity_game_screen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.challenges.npuzzle.MainActivity" />
         </activity>
     </application>
 

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,34 +23,8 @@ public class MainActivity extends Activity {
 	}
 
 	public void startGame(View v) {
-		AlertDialog.Builder alert = new AlertDialog.Builder(this);
-
-		alert.setTitle("Word");
-		alert.setMessage("Please enter the word to chop");
-
-		// Set an EditText view to get user input
-		final EditText input = new EditText(this);
-		alert.setView(input);
-
-		alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int whichButton) {
-				String value = input.getText().toString();
-				// Do something with value!
-			}
-		});
-
-		alert.setNegativeButton("Cancel",
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-						// Canceled.
-					}
-				});
-
-		alert.show();
-	}
-
-	public void changeSettings(View v) {
-
+		Intent myIntent = new Intent(MainActivity.this, GameScreenActivity.class);
+		MainActivity.this.startActivity(myIntent);
 	}
 
 	// Main -- > Help

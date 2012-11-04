@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <array name="cardList">
+        <item>@drawable/card_fiesta</item>
+        <item>@drawable/card_hull</item>
+        <item>@drawable/card_knoll</item>
+        <item>@drawable/card_leviathan</item>
+        <item>@drawable/card_mortar</item>
+    </array>    
+</resources>
