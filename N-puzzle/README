@@ -1,3 +1,10 @@
+PROJECT: (Challenge by MindSnacks)
+Create a 4x4 puzzle slider game called "Chop That Word". It is a word game that aims to help people memorize the spelling and the meaning of words. I designed word cards which look like poker cards but instead with a picture of the word in the center and its initial around the corners. When the game is loaded, you get the word card, then the card is cut into 15 pieces and shuffled. Then you try to put together the pieces to get back the original image. When you complete the puzzle, the word flashes on the screen. 
+This way, you spend time trying to remember the picture and associate that with the word. If you want to shuffle the pieces again, you shake the mobile device. You can either touch to slide the pieces or tilt the mobile device. 
+The word cards can be the in-app purchases.
+
+TODO: Find out why even though gamePieces and emptyGamePieces interact and switch places correctly, the BGs and titles are not set correctly.
+
 REFERENCES:
 These are some of the searches and references I used during this project. I will edit and do a proper markup later.
 -----------------------
