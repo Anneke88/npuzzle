@@ -33,7 +33,10 @@ public class SplashActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		startAnimations();
-		h_getTo_nextActivity.postDelayed(r_MainActivity, 4 * 1000);
+		// Go to MainActivity with a 2sec delay
+		// 2 sec delay is a place holder. SplashActivity and Animations can be used to load/prepare data without boring the user.
+		// Done to gain some time before moving to the MainActivity
+		h_getTo_nextActivity.postDelayed(r_MainActivity, 2 * 1000);
 	}
 
 	@Override
@@ -42,6 +45,7 @@ public class SplashActivity extends Activity {
 		return true;
 	}
 
+	// A slow fade-in animation
 	private void startAnimations() {
 		Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
 		anim.reset();

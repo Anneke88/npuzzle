@@ -14,60 +14,62 @@ import android.support.v4.app.NavUtils;
 
 public class GameScreenActivity extends Activity {
 
-    private GameBoard board;
-    private Bitmap bitmap; // temporary holder for puzzle picture
-    private int screenWidth;
-    private int screenHeight;
-    private final int GAMESIZE = 16;    
-    private final int GRIDSIZE = 4;
+	private Bitmap tempBitmap;
+	private int screenWidth;
+	private int screenHeight;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//sets the orientation to portrait
-        setContentView(R.layout.activity_game_screen);
-        
-        createGameBoard();
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		setContentView(R.layout.activity_game_screen);
 
-    private void setScreenSize() {
-       DisplayMetrics metrics = new DisplayMetrics();
-       getWindowManager().getDefaultDisplay().getMetrics(metrics);
-       screenWidth = (int) (metrics.widthPixels * metrics.density);
-       screenHeight = (int) (metrics.heightPixels * metrics.density);
-    }
+		// Initialize screenWidth, screenHeight
+		initScreenSize();
+		// Create game board for display
+		createGameBoard();
+	}
 
-    private Bitmap resizeDrawabletoScreenSize(Drawable image) {
-       setScreenSize();
+	private final void createGameBoard() {
+		// Resize the drawable resource to the screen size and convert to Bitmap
+		tempBitmap = resizeDrawabletoScreenSize(getResources().getDrawable(R.drawable.card_leviathan));
 
-       Bitmap bitmapDr = Bitmap.createScaledBitmap(((BitmapDrawable)image).getBitmap(), screenWidth, screenHeight, false);
-       return bitmapDr;       
-    }
+		// TableLayout has rows,columns that we can use to store our GamePieces
+		TableLayout gLayout;
+		gLayout = (TableLayout) findViewById(R.id.gameLayout);
+		gLayout.removeAllViews();
 
-    private final void createGameBoard() {
-      bitmap = resizeDrawabletoScreenSize(getResources().getDrawable(R.drawable.card_hull));
+		GameBoard.createGameBoard(this, tempBitmap, gLayout, screenWidth, screenHeight);
+		tempBitmap.recycle();
+	}
 
-      TableLayout gLayout;
-      gLayout = (TableLayout)findViewById(R.id.gameLayout);    
-      gLayout.removeAllViews();
-      
-      board = GameBoard.createGameBoard(this, bitmap, gLayout, screenWidth, screenHeight);      
-      bitmap.recycle();
-   }
+	// Get and set screen size width, height to use in resizing picture
+	private void initScreenSize() {
+		DisplayMetrics metrics = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(metrics);
+		this.screenWidth = (int) (metrics.widthPixels * metrics.density);
+		this.screenHeight = (int) (metrics.heightPixels * metrics.density);
+	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_game_screen, menu);
-        return true;
-    }
-    
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+	// Resize the drawable resource to the screen size and convert to Bitmap
+	private Bitmap resizeDrawabletoScreenSize(Drawable image) {
+		Bitmap tempBitmap = Bitmap.createScaledBitmap(((BitmapDrawable) image).getBitmap(), screenWidth, screenHeight, false);
+		return tempBitmap;
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_game_screen, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			NavUtils.navigateUpFromSameTask(this);
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
 }
